@@ -9,6 +9,10 @@ import { Component } from '@angular/core';
     <h2 [class]="textSuccess">CompView</h2>
     <h2 [class.text-danger]="hasError">CompView Error</h2>
     <h2 [ngClass]="messageClass">CompView Message Classes</h2>
+    <h2 [style.color]="'orange'">Style bindings</h2>
+    <h2 [style.color]="hasError ? 'red' : 'green'">Style bindings</h2>
+    <h2 [style.color]="highlightColor">Style bindings</h2>
+    <h2 [ngStyle]="ngStylesMultiple">Style Binding Class NgStyle</h2>
   `,
   styles: [`
     .text-success {
@@ -29,6 +33,11 @@ export class TestComponent {
   messageClass: object = {
     "text-success": !this.hasError,
     "text-danger": this.hasError
+  }
+  highlightColor = 'green';
+  ngStylesMultiple = {
+    'fontStyle': 'italic',
+    'color': 'cyan'
   }
 
   name: string = "TestWorks";
